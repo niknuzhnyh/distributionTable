@@ -11,6 +11,13 @@ if (!pass) {
 
 let passStr = `&pass=${pass}`
 
+let LogOutBtn = document.getElementById('LogOut') 
+LogOutBtn.addEventListener('click',() => {
+  pass = '';
+  localStorage.removeItem('pass')
+  location.reload()
+})
+
 
 fetch(`${getPersonsUrl+passStr}`, {
   redirect: "follow"
@@ -22,7 +29,6 @@ fetch(`${getPersonsUrl+passStr}`, {
     );
     throw error;
   }
-  console.log(response);
   return response.json();
 })
 .then((data) => {

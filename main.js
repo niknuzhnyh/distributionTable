@@ -1,14 +1,19 @@
-const URL = 'https://script.google.com/macros/s/AKfycbwLWPko-FGx3tqKHQrAOCsO7brXTlrlaNoi53BXnE4H8jHqf-pGRce5k3bhZXJnrG3s/exec'
+const URL = 'https://script.google.com/macros/s/AKfycbwh3J1CPRuTOvl0E11vev8q1IOTxMzW6CJcvyVvMXFfsDHjQGhpUB828xjbI_GicIvD/exec'
 const getPersonsUrl = URL + '?action=getPersons'
 
+let pass = localStorage.getItem('pass')
 
-fetch(getPersonsUrl, {
-  redirect: "follow",
-  // method: "POST",
-  // body: JSON.stringify(DATA),
-  headers: {
-    "Content-Type": "text/plain;charset=utf-8",
-  }
+if (!pass) {
+  let passPrompt = prompt('enter password');
+  localStorage.setItem('pass', passPrompt);
+  pass = passPrompt
+}
+
+let passStr = `&pass=${pass}`
+
+
+fetch(`${getPersonsUrl+passStr}`, {
+  redirect: "follow"
 })
 .then((response) => {
   if (response.status != 200) {
@@ -17,28 +22,24 @@ fetch(getPersonsUrl, {
     );
     throw error;
   }
+  console.log(response);
   return response.json();
 })
 .then((data) => {
-  console.log(data);
-});
+  let personsArr = data.persons
 
-let personsArr = [
+  let dataOptions = {
+    data: {},
+  };
+  personsArr.forEach((e) => {
+    dataOptions.data[e] = null;
+  });
 
-];
-
-let dataOptions = {
-  data: {},
-};
-personsArr.forEach((e) => {
-  dataOptions.data[e] = null;
-});
-
-console.log(dataOptions);
-
-document.addEventListener("DOMContentLoaded", function () {
   let personInptElem = document.querySelector(".personInpt");
   let instances = M.Autocomplete.init(personInptElem, dataOptions);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
 
   let datepickerElem = document.querySelector('.dateInpt');
   let instanceDatePicker = M.Datepicker.init(datepickerElem, {

@@ -1,4 +1,20 @@
-.container{
+.containerMain{
     max-width: 1100px;
     padding: 15px;padding-top: 2rem;
+}
+
+.df{
+    display: flex;
+}
+
+.jcsa{
+    justify-content: space-around;
+}
+
+/* .ItemNumbers{
+    width: 100%;
+} */
+
+.itemNumInpt {
+    max-width: 40%;
 }

@@ -13,7 +13,7 @@
 
 <body>
 
-    <div class="container">
+    <div class="container containerMain">
         <div class="row">
             <a class="waves-effect waves-light btn" id="LogOut"><i class="material-icons left">account_box</i>LogOut</a>
         </div>
@@ -32,14 +32,24 @@
                     </div>
                 </div>
             </div>
-            <div class="col s12">
+            <div class="col s12" id="items">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="text" id="autocomplete-itemInput" class="autocomplete itemInput">
-                        <label for="autocomplete-itemInput">Назва препарату</label>
+                        <input type="text" class="autocomplete itemInpt" placeholder="Препарат">
+                        <div class="ItemNumbers">
+                            <input type="number" class="itemNumInpt" min="1" value="1" placeholder="№">
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row">
+            <button class="btn waves-effect waves-light" name="Add" id="addItemBtn">Add
+                <i class="material-icons right">add</i>
+            </button>
+            <button class="btn waves-effect waves-light" name="action">Submit
+                <i class="material-icons right">send</i>
+            </button>
         </div>
     </div>
 

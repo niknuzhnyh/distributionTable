@@ -21,24 +21,22 @@
             <div class="input-field col s5">
                 <div class="row">
                     Дата видачі
-                    <input type="text" class="datepicker dateInpt">
+                    <input type="text" id="date-input" class="datepicker dateInpt">
                 </div>
             </div>
             <div class="col s12">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="text" id="autocomplete-input" class="autocomplete personInpt">
+                        <input type="text" id="person-input" class="autocomplete personInpt">
                         <label for="autocomplete-input">ПІБ</label>
                     </div>
                 </div>
             </div>
             <div class="col s12" id="items">
-                <div class="row">
+                <div class="row inptWrap">
                     <div class="input-field col s12">
                         <input type="text" class="autocomplete itemInpt" placeholder="Препарат">
-                        <div class="ItemNumbers">
-                            <input type="number" class="itemNumInpt" min="1" value="1" placeholder="№">
-                        </div>
+                        <input type="number" class="itemNumInpt" min="1" value="1" placeholder="№">
                     </div>
                 </div>
             </div>
@@ -47,7 +45,7 @@
             <button class="btn waves-effect waves-light" name="Add" id="addItemBtn">Add
                 <i class="material-icons right">add</i>
             </button>
-            <button class="btn waves-effect waves-light" name="action">Submit
+            <button class="btn waves-effect waves-light" name="action" id="submitForm">Submit
                 <i class="material-icons right">send</i>
             </button>
         </div>

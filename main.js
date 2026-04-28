@@ -1,5 +1,5 @@
 const URL =
-  "https://script.google.com/macros/s/AKfycbwlHLl9LYs56-9uxWGhFyhs5SmNp8-vva_EMXhPrFWe9zwgcO_iT10PCdO1IAYGRkQv/exec";
+  "https://script.google.com/macros/s/AKfycbxCpGLyy7REfFgC_MJD9J5zmvRuIBWh0GNBQQIMU9oMLJ40LTkcGRK0rd2NO1CvJej5/exec";
 const getAutoCompliteUrl = URL + "?action=getAutoComplite";
 
 let pass = localStorage.getItem("pass");
